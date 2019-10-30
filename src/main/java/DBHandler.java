@@ -6,7 +6,7 @@ public class DBHandler {
         Class.forName("org.mariadb.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mariadb://su1.eduhost.dk:3306/server1?user=gruppe6&password=gruppe6");
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM patient;");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient;");
         System.out.println("Det virkede");
         return "Den hemmelige data";
     }
