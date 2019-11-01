@@ -30,7 +30,7 @@
 </div>
 <div>
     <p align="center">
-        <a href="login.html">
+        <a href="login.jsp">
             <button>Log på og se dine sundhedsaftaler her</button> <!-- Sådan laver du links -->
         </a>
     </p>

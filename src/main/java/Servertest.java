@@ -16,8 +16,8 @@ DBHandler database = new DBHandler();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String cpr = req.getParameter("input1");
-        String password = req.getParameter("input2");
+        String cpr = req.getParameter("CPRnummer");
+        String password = req.getParameter("password");
         try {
             database.validering(cpr,password);
         } catch (SQLException e) {
