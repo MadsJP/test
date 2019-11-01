@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: Christoffer
+  Date: 01-11-2019
+  Time: 13:39
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en" dir="ltr">
 <head>
     <link rel="stylesheet" type="text/css" href="booking.css">
@@ -73,4 +80,3 @@
 </footer>
 
 </body>
-</html>
