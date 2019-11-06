@@ -20,13 +20,12 @@
 
 <body>
 <header>
-    <h1>Aftale side: CPR-NUMMER</h1>
+    <h1>Aftale side: <% out.println(request.getParameter("CPR")); %></h1>
     <hr>
     <nav>
         <!-- Her skal der stå links -->
     </nav>
 </header>
-Patient der er logget ind: <% out.println(request.getParameter("CPR")); %><br>
 <%  DB db = new DB();
 
 

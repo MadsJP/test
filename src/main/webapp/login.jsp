@@ -1,3 +1,4 @@
+<%@ page import="data.DB" %>
 <%--
   Created by IntelliJ IDEA.
   User: Christoffer
