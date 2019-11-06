@@ -4,6 +4,7 @@ public class Aftale {
     private String Patient;
     private String Type;
     private String Sygehus;
+    private String Dato;
 
     public String getPatient() {
         return Patient;
@@ -27,5 +28,13 @@ public class Aftale {
 
     public void setSygehus(String sygehus) {
         Sygehus = sygehus;
+    }
+
+    public String getDato() {
+        return Dato;
+    }
+
+    public void setDato(String dato) {
+        Dato = dato;
     }
 }

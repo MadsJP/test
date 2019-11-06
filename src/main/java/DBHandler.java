@@ -25,7 +25,7 @@ public class DBHandler {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient;");
         connection.close();
         List<Patient> patients = parseResultsetToPatient(resultSet);
-        System.out.println("Der er forbindelse");
+        System.out.println("Der er Patienter");
         return patients;
     }
 
@@ -60,9 +60,11 @@ public class DBHandler {
         while (resultSet.next()) {
             Patient patient = new Patient();
             String cpr = resultSet.getString("CPR");
+            String fornavn = resultSet.getString("Fornavn");
             patient.setCPR(cpr);
+            patient.setFornavn(fornavn);
             patients.add(patient);
-            System.out.println("CPR " + cpr);
+            System.out.println("Patient " + fornavn + " " + cpr);
         }
         return patients;
     }
@@ -71,9 +73,15 @@ public class DBHandler {
         while (resultSet.next()) {
             Aftale aftale = new Aftale();
             String patient = resultSet.getString("Patient");
+            String sygehus = resultSet.getString("Sygehus");
+            String type = resultSet.getString("Type");
+            String dato = resultSet.getString("Dato");
             aftale.setPatient(patient);
+            aftale.setSygehus(sygehus);
+            aftale.setType(type);
+            aftale.setDato(dato);
             aftaler.add(aftale);
-            System.out.println("Aftale " + patient);
+            System.out.println(patient + " har en aftale på sygehus " + sygehus + " til undersøgelse i " + type + " den "+ dato);
         }
         return aftaler;
     }

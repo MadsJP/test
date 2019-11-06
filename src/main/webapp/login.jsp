@@ -23,7 +23,7 @@
 
 <main>
     <p style="color: black; text-align: left;">Du kan her logge ind med CPR-NR og password</p>
-   <!-- <form action="/servertest" method="POST"> -->
+   <form action="/servertest" method="POST">
 
         CPR-NUMMER:<br>
 
@@ -36,7 +36,7 @@
         <input type="submit" value="Log ind"/>
         </a>
 
-   <!-- </form> -->
+   </form>
 </main>
 
 <footer>
