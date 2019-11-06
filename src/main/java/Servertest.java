@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/hello/")
+@WebServlet("/servertest")
 public class Servertest extends HttpServlet {
 DBHandler database = new DBHandler();
     @Override
