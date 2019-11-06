@@ -1,3 +1,4 @@
+package data;
 import data.Aftale;
 import data.Patient;
 
@@ -5,8 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBHandler {
-   /* public static void main (String[] args) {
+public class DB {
+    public static void main (String[] args) {
         try {
             getPatients();
             getAftale();
@@ -16,7 +17,7 @@ public class DBHandler {
             e.printStackTrace();
         }
 
-    } */
+    }
 
     public static List<Patient> getPatients() throws SQLException, ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");

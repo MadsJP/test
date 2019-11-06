@@ -1,3 +1,6 @@
+<%@ page import="data.DB" %>
+<%@ page import="data.Aftale" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: Christoffer
@@ -11,8 +14,10 @@
     <link rel="stylesheet" type="text/css" href="booking.css">
     <meta charset="UTF-8">
     <!-- <meta name"description" content="Dette er vores Sundhedsplatform"> --> <!-- Kunne ikke finde ud af hvad det her bruges til-->
-    <title>Sundhedsplatform</title>
+    <title>Oversigt</title>
 </head>
+
+
 <body>
 <header>
     <h1>Aftale side: CPR-NUMMER</h1>
@@ -21,6 +26,11 @@
         <!-- Her skal der stå links -->
     </nav>
 </header>
+Patient der er logget ind: <% out.println(request.getParameter("CPR")); %><br>
+<%  DB db = new DB();
+
+
+  %>
 
 <main>
     <h1 id="head1">Vælg venligst Hospital & afdeling</h1>
@@ -49,6 +59,11 @@
                 </label>
             </p>
         </form>
+        Vælg Dato:
+        <label>
+            <input name ="bestil tid" type = "date">
+        </label>
+        <br>
         <input type="button" name="OK" value="OK">
     </div>
     <br>
@@ -56,10 +71,38 @@
     <hr>
     <h1 id="head2">Nuværende booking(er):</h1>
     <div>
+       <table style="width:100%">
+           <thead>
+           <tr>
+               <td> <b> Tidspunkt </b>  </td>
+               <td> <b> Sygehus </b> </td>
+               <td> <b> Afdeling </b> </td>
+               <td> <b> Varighed </b> </td>
+               <td> <b> Undersøgelse </b> </td>
+           </tr>
+           </thead>
+           <tbody>
+           <% List<Aftale> aftaler = DB.getAftale();
+               /* System.out.println(aftaler.size()); */
+               for(int i=0; i<aftaler.size(); i++) {
+                   Aftale app = aftaler.get(i);
+                   String Sygehus = app.getSygehus();
+                   String Type = app.getType();
+                   String Dato = app.getDato();
+           %>
+           <!---- Her indsættes din tabel ---->
+           <tr>
+               <td> <% out.println(Dato); %></td>
+               <td> <% out.print(Sygehus);%> </td>
+               <td> Mangler </td>
+               <td> Mangler </td>
+               <td> <% out.println(Type); %> </td>
 
-        <label>
-            <input name ="bestil tid" type = "date">
-        </label>
+           </tr>
+           <% }%>
+           </tbody>
+       </table>
+
     </div>
     <br>
     <hr>

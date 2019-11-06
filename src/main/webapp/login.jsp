@@ -23,18 +23,16 @@
 
 <main>
     <p style="color: black; text-align: left;">Du kan her logge ind med CPR-NR og password</p>
-   <form action="/servertest" method="POST">
+   <form action="booking.jsp" method="POST" >
 
         CPR-NUMMER:<br>
 
-        <input type="number" id="CPRnummer" placeholder="CPR" required/>
+        <input type="number" id="CPRnummer" placeholder="CPR" required name="CPR" />
         <br> PASSWORD:
         <br>
         <input id="password" type="password" placeholder="Password" required />
         <br>
-        <a href="booking.jsp">
         <input type="submit" value="Log ind"/>
-        </a>
 
    </form>
 </main>
