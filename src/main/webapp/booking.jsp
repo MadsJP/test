@@ -28,6 +28,7 @@
         <!-- Her skal der stå links -->
     </nav>
 </header>
+<!-- Hvis denne kode ikke er imellem head og body skal den tilføjes, og mellemrummet efter < og % skal fjernes < % String cpr = request.getParameter("cpr"); %> -->
 <%  DB db = new DB();
 
 
