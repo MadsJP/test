@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DB {
-    public static void main (String[] args) {
+     public static void main (String[] args) {
         try {
             getPatients();
             getAftale();
@@ -37,7 +37,7 @@ public class DB {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Aftale;");
         connection.close();
         List<Aftale> aftaler = parseResultsetToAftaler(resultSet);
-        System.out.println("Der er Aftaler");
+        //System.out.println("Der er Aftaler");
         return aftaler;
     }
 
@@ -45,11 +45,12 @@ public class DB {
         Class.forName("org.mariadb.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mariadb://su1.eduhost.dk:3306/server1?user=gruppe6&password=gruppe6");
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient WHERE CPR ='" + cpr + "';");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient");
         resultSet.next();
         String c = resultSet.getString("CPR");
         String p = resultSet.getString("Password");
         connection.close();
+        resultSet.close();
         if (cpr.equals(c) && password.equals(p)) {
             return true;
         }

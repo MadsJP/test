@@ -30,7 +30,7 @@
         <input type="number" id="CPRnummer" placeholder="CPR" required name="CPR" />
         <br> PASSWORD:
         <br>
-        <input id="password" type="password" placeholder="Password" required />
+        <input id="password" type="password" placeholder="Password" name="Password" required />
         <br>
         <input type="submit" value="Log ind"/>
 
