@@ -5,6 +5,7 @@ public class Aftale {
     private String Type;
     private String Sygehus;
     private String Dato;
+    private String Fritekst;
 
     public String getPatient() {
         return Patient;
@@ -36,5 +37,13 @@ public class Aftale {
 
     public void setDato(String dato) {
         Dato = dato;
+    }
+
+    public String getFritekst() {
+        return Patient;
+    }
+
+    public void setFritekst(String patient) {
+        this.Patient = patient;
     }
 }

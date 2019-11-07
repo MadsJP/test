@@ -78,7 +78,7 @@
                <td> <b> Tidspunkt </b>  </td>
                <td> <b> Sygehus </b> </td>
                <td> <b> Afdeling </b> </td>
-               <td> <b> Varighed </b> </td>
+               <td> <b> Besked </b> </td>
                <td> <b> Undersøgelse </b> </td>
            </tr>
            </thead>
@@ -90,13 +90,14 @@
                    String Sygehus = app.getSygehus();
                    String Type = app.getType();
                    String Dato = app.getDato();
+                   String Fritekst = app.getFritekst();
            %>
            <!---- Her indsættes din tabel ---->
            <tr>
                <td> <% out.println(Dato); %></td>
                <td> <% out.print(Sygehus);%> </td>
                <td> Mangler </td>
-               <td> Mangler </td>
+               <td> <% out.print(Fritekst); %> </td>
                <td> <% out.println(Type); %> </td>
 
            </tr>

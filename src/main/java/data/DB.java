@@ -76,10 +76,12 @@ public class DB {
             String sygehus = resultSet.getString("Sygehus");
             String type = resultSet.getString("Type");
             String dato = resultSet.getString("Dato");
+            String fritekst = resultSet.getString("Fritekst");
             aftale.setPatient(patient);
             aftale.setSygehus(sygehus);
             aftale.setType(type);
             aftale.setDato(dato);
+            aftale.setFritekst(fritekst);
             aftaler.add(aftale);
             System.out.println(patient + " har en aftale på sygehus " + sygehus + " til undersøgelse i " + type + " den "+ dato);
         }
