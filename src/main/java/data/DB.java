@@ -1,6 +1,4 @@
 package data;
-import data.Aftale;
-import data.Patient;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +8,7 @@ public class DB {
      public static void main (String[] args) {
         try {
             getPatients();
-            getAftale();
+            getAftale("");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -30,11 +28,11 @@ public class DB {
         return patients;
     }
 
-    public static List<Aftale> getAftale() throws SQLException, ClassNotFoundException {
+    public static List<Aftale> getAftale(String cpr) throws SQLException, ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mariadb://su1.eduhost.dk:3306/server1?user=gruppe6&password=gruppe6");
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM Aftale;");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Aftale WHERE Patient = '" + cpr + "';");
         connection.close();
         List<Aftale> aftaler = parseResultsetToAftaler(resultSet);
         //System.out.println("Der er Aftaler");
@@ -45,12 +43,12 @@ public class DB {
         Class.forName("org.mariadb.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mariadb://su1.eduhost.dk:3306/server1?user=gruppe6&password=gruppe6");
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient WHERE CPR ='"+ cpr +"';");
         resultSet.next();
         String c = resultSet.getString("CPR");
         String p = resultSet.getString("Password");
         connection.close();
-        resultSet.close();
+        //System.out.println("Jeg validerer");
         if (cpr.equals(c) && password.equals(p)) {
             return true;
         }

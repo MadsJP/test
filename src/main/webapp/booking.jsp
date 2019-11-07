@@ -1,3 +1,4 @@
+
 <%@ page import="data.DB" %>
 <%@ page import="data.Aftale" %>
 <%@ page import="java.util.List" %>
@@ -8,6 +9,7 @@
   Time: 13:39
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en" dir="ltr">
 <head>
@@ -16,11 +18,11 @@
     <!-- <meta name"description" content="Dette er vores Sundhedsplatform"> --> <!-- Kunne ikke finde ud af hvad det her bruges til-->
     <title>Oversigt</title>
 </head>
-
+    <% String cpr = request.getParameter("cpr"); %>
 
 <body>
 <header>
-    <h1>Aftale side: <% out.println(request.getParameter("CPR")); %></h1>
+    <h1>Aftale side: <%=cpr%> </h1>
     <hr>
     <nav>
         <!-- Her skal der stå links -->
@@ -81,7 +83,7 @@
            </tr>
            </thead>
            <tbody>
-           <% List<Aftale> aftaler = DB.getAftale();
+           <% List<Aftale> aftaler = DB.getAftale(cpr);
                /* System.out.println(aftaler.size()); */
                for(int i=0; i<aftaler.size(); i++) {
                    Aftale app = aftaler.get(i);
