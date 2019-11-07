@@ -35,7 +35,7 @@ DB db = new DB();
             resp.sendRedirect("booking.jsp?cpr="+ CPR);
         }
         else {
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("login.jsp");
         }
     }
 }
