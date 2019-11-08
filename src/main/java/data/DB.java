@@ -14,7 +14,6 @@ public class DB {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public static List<Patient> getPatients() throws SQLException, ClassNotFoundException {
@@ -24,7 +23,7 @@ public class DB {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient;");
         connection.close();
         List<Patient> patients = parseResultsetToPatient(resultSet);
-        //System.out.println("Der er Patienter");
+        System.out.println("Der er Patienter");
         return patients;
     }
 
@@ -35,7 +34,7 @@ public class DB {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Aftale WHERE Patient = '" + cpr + "';");
         connection.close();
         List<Aftale> aftaler = parseResultsetToAftaler(resultSet);
-        //System.out.println("Der er Aftaler");
+        System.out.println("Der er Aftaler");
         return aftaler;
     }
 
@@ -64,7 +63,7 @@ public class DB {
             patient.setCPR(cpr);
             patient.setFornavn(fornavn);
             patients.add(patient);
-            //System.out.println("Patient " + fornavn + " " + cpr);
+            System.out.println("Patient " + fornavn + " " + cpr);
         }
         return patients;
     }
@@ -83,7 +82,7 @@ public class DB {
             aftale.setDato(dato);
             aftale.setFritekst(fritekst);
             aftaler.add(aftale);
-            //System.out.println(patient + " har en aftale på sygehus " + sygehus + " til undersøgelse i " + type + " den "+ dato);
+            System.out.println(patient + " har en aftale på sygehus " + sygehus + " til undersøgelse i " + type + " den "+ dato);
         }
         return aftaler;
     }
