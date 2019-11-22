@@ -7,7 +7,7 @@ import java.util.List;
 public class DB {
      public static void main (String[] args) {
         try {
-            getPatients();
+            //getPatients();
             getAftale("");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -16,15 +16,22 @@ public class DB {
         }
     }
 
-    public static List<Patient> getPatients() throws SQLException, ClassNotFoundException {
+    public static Patient getPatient(String cpr) throws SQLException, ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mariadb://su6.eduhost.dk:3306/server1?user=christoffer&password=zaq12wsx");
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient;");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM Patient WHERE cpr='"+cpr+"';");
         connection.close();
-        List<Patient> patients = parseResultsetToPatient(resultSet);
-        System.out.println("Der er Patienter");
-        return patients;
+        Patient patient = null;
+        while (resultSet.next()) {
+            patient = new Patient();
+            String cPR = resultSet.getString("CPR");
+            String fornavn = resultSet.getString("Fornavn");
+            patient.setCPR(cpr);
+            patient.setFornavn(fornavn);
+            System.out.println("Patient " + fornavn + " " + cpr);
+        }
+        return patient;
     }
 
     public static List<Aftale> getAftale(String cpr) throws SQLException, ClassNotFoundException {
@@ -76,9 +83,10 @@ public class DB {
             String type = resultSet.getString("Type");
             String dato = resultSet.getString("Dato");
             String fritekst = resultSet.getString("Fritekst");
-            aftale.setPatient(patient);
-            aftale.setSygehus(sygehus);
-            aftale.setType(type);
+            //TODO fix!
+        //    aftale.setPatient(patient);
+          //  aftale.setSygehus(sygehus);
+          //  aftale.setType(type);
             aftale.setDato(dato);
             aftale.setFritekst(fritekst);
             aftaler.add(aftale);

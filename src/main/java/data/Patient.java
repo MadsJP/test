@@ -1,23 +1,35 @@
 package data;
 
-    public class Patient {
-        private String CPR;
-        private String Fornavn;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
-        public String getCPR() {
-            return CPR;
-        }
+@JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
+public class Patient {
+    private String CPR;
+    private String Fornavn;
+    private Aftale Aftale;
 
-        public void setCPR(String CPR) {
-            this.CPR = CPR;
-        }
+    public String getCPR() {
+        return CPR;
+    }
 
-        public String getFornavn() {
-            return Fornavn;
-        }
+    public void setCPR(String CPR) {
+        this.CPR = CPR;
+    }
 
-        public void setFornavn(String fornavn) {
-            Fornavn = fornavn;
-        }
+    public String getFornavn() {
+        return Fornavn;
+    }
 
-        }
+    public void setFornavn(String fornavn) {
+        Fornavn = fornavn;
+    }
+
+    public data.Aftale getAftale() {
+        return Aftale;
+    }
+
+    public void setAftale(data.Aftale aftale) {
+        Aftale = aftale;
+    }
+}

@@ -1,4 +1,4 @@
-/* import data.Aftale;
+import data.Aftale;
 import data.Patient;
 
 import java.sql.*;
@@ -76,9 +76,10 @@ public class DBHandler {
             String sygehus = resultSet.getString("Sygehus");
             String type = resultSet.getString("Type");
             String dato = resultSet.getString("Dato");
-            aftale.setPatient(patient);
-            aftale.setSygehus(sygehus);
-            aftale.setType(type);
+          //TODO fix
+            //  aftale.setPatient(patient);
+           // aftale.setSygehus(sygehus);
+          //  aftale.setType(type);
             aftale.setDato(dato);
             aftaler.add(aftale);
             System.out.println(patient + " har en aftale på sygehus " + sygehus + " til undersøgelse i " + type + " den "+ dato);
@@ -86,4 +87,3 @@ public class DBHandler {
         return aftaler;
     }
 }
-*/

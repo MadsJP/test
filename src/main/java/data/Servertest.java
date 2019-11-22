@@ -1,20 +1,52 @@
 package data;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 
-@WebServlet("/servertest")
+@WebServlet("/api/aftale/*")
 public class Servertest extends HttpServlet {
 DB db = new DB();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("Farvel" + req.getRequestURI());
+        String[] split = req.getRequestURI().split("/");
+
+        //TODO: get id and find a user in the db
+        DB conn = new DB();
+
+        String id = split[split.length-1];
+
+        Patient ptFromDB = null;
+        try{
+            ptFromDB = conn.getPatient(id);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        //TODO: hent aftaler over
+        if(ptFromDB != null){
+
+        }
+        else{
+
+        }
+
+
+
+        //TODO: return some xml
+        XmlMapper mapper = new XmlMapper();
+        String xmlString = mapper.writeValueAsString(ptFromDB);
+
+        resp.getWriter().write(xmlString);
+        resp.flushBuffer();
+
     }
 
     @Override
@@ -37,5 +69,8 @@ DB db = new DB();
         else {
             resp.sendRedirect("login.jsp");
         }
+
     }
 }
+
+//https://www.baeldung.com/jackson-xml-serialization-and-deserialization

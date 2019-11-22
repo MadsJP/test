@@ -1,33 +1,28 @@
 package data;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(PropertyNamingStrategy.UpperCamelCaseStrategy.class)
 public class Aftale {
-    private String Patient;
-    private String Type;
-    private String Sygehus;
+    private Type Type;
+    private Sygehus Sygehus;
     private String Dato;
     private String Fritekst;
 
-    public String getPatient() {
-        return Patient;
-    }
-
-    public void setPatient(String patient) {
-        this.Patient = patient;
-    }
-
-    public String getType() {
+    public data.Type getType() {
         return Type;
     }
 
-    public void setType(String type) {
+    public void setType(data.Type type) {
         Type = type;
     }
 
-    public String getSygehus() {
+    public data.Sygehus getSygehus() {
         return Sygehus;
     }
 
-    public void setSygehus(String sygehus) {
+    public void setSygehus(data.Sygehus sygehus) {
         Sygehus = sygehus;
     }
 
@@ -40,10 +35,10 @@ public class Aftale {
     }
 
     public String getFritekst() {
-        return Patient;
+        return Fritekst;
     }
 
-    public void setFritekst(String patient) {
-        this.Patient = patient;
+    public void setFritekst(String fritekst) {
+        this.Fritekst = fritekst;
     }
 }

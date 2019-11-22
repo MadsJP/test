@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!--prolog (syntaks)-->
+
+<!--Sende data fra server til klient-->
+
+
+    <Patient id="1"> <!--attributværdi "1"-->
+        <Cpr>0123456789</Cpr>
+        <Fornavn>Jasmin</Fornavn>
+        <Efternavn>Aflatouni</Efternavn>
+        <Aftale>
+            <Type>
+                <AftaleType>MR</AftaleType>
+                <Varighed>1800</Varighed> <!--sek-->
+            </Type>
+            <Dato>20-11-2019</Dato> <!--timestamp-->
+            <Status>booket</Status> <!--indkaldt, booket, gennemført el. aflyst-->
+            <Sygehus>
+                <Navn></Navn> <!--servernumre-->
+                <Afdeling>Røntgen og Scanning</Afdeling>
+            </Sygehus>
+            <Fritekst>Tester</Fritekst>
+        </Aftale>
+    </Patient>
+
+
+
+
+
+<!--Inspiration: https://www.youtube.com/watch?v=8RK8FDTdLSc-->
