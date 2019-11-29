@@ -9,6 +9,16 @@ public class Patient {
     private String Fornavn;
     private Aftale Aftale;
 
+    public String getEfternavn() {
+        return Efternavn;
+    }
+
+    public void setEfternavn(String efternavn) {
+        Efternavn = efternavn;
+    }
+
+    private String Efternavn;
+
     public String getCPR() {
         return CPR;
     }
